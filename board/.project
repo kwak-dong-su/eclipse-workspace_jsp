@@ -5,8 +5,6 @@
 	<projects>
 		<project>json-simple-1.1.1</project>
 		<project>taglibs-standard-impl-1.2.5</project>
-		<project>commons-fileupload-1.4</project>
-		<project>commons-io-2.11.0</project>
 		<project>mysql-connector-java-5.1.46</project>
 		<project>taglibs-standard-spec-1.2.5</project>
 		<project>taglibs-standard-compat-1.2.5</project>
