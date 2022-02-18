@@ -1,0 +1,10 @@
+package com.hi.mvc03;
+
+import org.springframework.stereotype.Controller;
+
+@Controller //스프링이라는 프로그램에 컨트롤러로 등록
+public class BookController {
+	//@
+	//@hera@naver.com (at -에)
+	//Annotation (표시, 어노테이션)
+}

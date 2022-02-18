@@ -1,0 +1,29 @@
+package com.hi.mvc03;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class PayController {
+	
+	@RequestMapping("ajax2")
+	public void ajax1(String money, String choice, Model model) 
+	{
+
+		System.out.println(money+" "+choice);
+		int money2=Integer.parseInt(money);
+		
+		if(choice.equals("1"))
+		{
+			money2=money2/100*70;
+		}
+		else if(choice.equals("2"))
+		{
+			money2=money2/100*90;
+		}
+		
+		model.addAttribute("money", money2);
+		
+	}
+}

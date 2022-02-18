@@ -1,0 +1,23 @@
+package web;
+
+import javax.swing.JOptionPane;
+
+public class AccountView {
+
+	public static void main(String[] args) {
+		String name=JOptionPane.showInputDialog("�̸� �Է�");
+		String accName=JOptionPane.showInputDialog("�����̸� �Է�");
+		int amount= Integer.parseInt(JOptionPane.showInputDialog("�ݾ� �Է�"));
+		
+		AccountVO vo=new AccountVO();
+		vo.setName(name);
+		vo.setAccName(accName);
+		vo.setAmount(amount);
+		
+		AccountDAO dao=new AccountDAO();
+		dao.create(vo);
+		
+
+	}
+
+}

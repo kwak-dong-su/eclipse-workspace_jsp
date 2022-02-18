@@ -1,0 +1,28 @@
+package web;
+
+import javax.swing.JOptionPane;
+
+public class MemberView {
+
+	public static void main(String[] args) {
+		//�Է�ȭ��(view)
+		String id=JOptionPane.showInputDialog("id�Է�");
+		String pw=JOptionPane.showInputDialog("pw�Է�");
+		String name=JOptionPane.showInputDialog("name�Է�");
+		String tel=JOptionPane.showInputDialog("tel�Է�");
+		
+		//����κ�(control)
+		//������ ���� �Էµ����͸� ���濡 �־�����.
+		MemberVO bag=new MemberVO();
+		bag.setId(id);
+		bag.setPw(pw);
+		bag.setName(name);
+		bag.setTel(tel);
+		
+		//db�� �ִ� ó��- DAO���� ���濡 �־ ����
+		MemberDAO dao=new MemberDAO();
+		dao.create(bag);
+
+	}
+
+}

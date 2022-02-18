@@ -1,0 +1,22 @@
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="web.*" %>
+    <%
+    	MemberDAO dao=new MemberDAO();
+    //import: 클릭 후, 컨트롤+쉬프트+m
+    //java에서 import : 컨트롤+쉬프트+o
+    	ArrayList<MemberVO> list=dao.readAll();
+
+    %>
+    <!-- -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>
