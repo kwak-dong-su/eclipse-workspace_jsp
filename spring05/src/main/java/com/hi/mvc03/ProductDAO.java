@@ -11,8 +11,6 @@ public class ProductDAO {
 	SqlSessionTemplate my;
 	
 	public void create(ProductVO vo) throws Exception {
-		System.out.println("dao에서 전달받은 값:" + vo);	
-		//4. 생성한 sql문을 mysql로 보낸다.
 		my.insert("product.create", vo);
 	}
 	

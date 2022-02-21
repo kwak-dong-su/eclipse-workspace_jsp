@@ -31,7 +31,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping("create")
-	public void create(MemberVO vo, MemberDAO dao) throws Exception
+	public void create(MemberVO vo) throws Exception
 	{
 		System.out.println("회원가입 제어 요청됨.");
 		//1. 입력한 값 받아오기
@@ -44,7 +44,7 @@ public class MemberController {
 	//create라고 요청이 들어오면 회원가입 기능을 처리해주세요.
 	
 	@RequestMapping("del") // 핑크화면
-	public void del(MemberVO vo, MemberDAO dao) throws Exception
+	public void del(MemberVO vo) throws Exception
 	{
 		System.out.println("회원탈퇴 제어 요청됨.");
 		System.out.println(vo);
@@ -52,7 +52,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping("up") //초록화면
-	public void up(MemberVO vo, MemberDAO dao) throws Exception
+	public void up(MemberVO vo) throws Exception
 	{
 		System.out.println("회원수정 제어 요청됨.");
 		System.out.println(vo);

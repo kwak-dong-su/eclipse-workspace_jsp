@@ -5,7 +5,7 @@
 		insert into bbs values(#{id}, #{title}, #{content}, #{writer})
 	</insert>
 	<!-- r은 하나의 row, 전체리스트 rows -->
-	<select id="one" parameterType="bssVO" resultType="bbsVO">
+	<select id="one" parameterType="bbsVO" resultType="bbsVO">
 		select * from bbs where id = #{id}
 	</select>
 	<select id="all" resultType="bbsVO">
