@@ -3,40 +3,43 @@ package com.hi.mvc03;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.util.List;
 
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component //싱글톤 객체로 생성(주소)
 public class BookDAO {
 
+	@Autowired
+	SqlSessionTemplate my; //전역변수
+	//싱글톤으로 만든 mybatis객체의 주소를 찾아서 my변수에 넣어주세요.
+	//DAO부품안에 myBatis부품을 끼워넣음.
+	//Dependency(의존성) Injection(주입) : 의존성(DI)
+	//의존성: 해당 부품이 반드시 필요하다라는 의미
+	//주입: 의존성을 표현하고 싶으면 ram에 만들어놓은 주소를 쓰는 클래스의
+	//		변수에 주소를 넣어주세요.
+	
 	public void create(BookVO vo) throws Exception {
-		System.out.println("dao에서 전달받은 값:" + vo);
-		
-		System.out.println("회원가입 처리 요청됨.");
-		
-		//db프로그램 순서
-		//1. connector라이브러리 설정
-		Class.forName("com.mysql.jdbc.Driver");
-		System.out.println("1. 드라이버/커넥터 설정 성공@@@");
-		
-		//2. db 연결 : 1) ip+port, 2) user+pw, 3)db명(big)
-		String url = "jdbc:mysql://localhost:3366/big";
-		String user = "root";
-		String pass = "1234";
-		
-		Connection con = DriverManager.getConnection(url, user, pass);
-		
-		System.out.println("2. db연결 성공@@@");
-		
-		//3. sql문을 생성
-		String sql = "insert into book values (?, ?, ?, ?)";
-
-		PreparedStatement ps = con.prepareStatement(sql);
-		System.out.println("3. SQL객체 생성 성공.@@@");
-		ps.setString(1, vo.getId());
-		ps.setString(2, vo.getName());
-		ps.setString(3, vo.getUrl());
-		ps.setString(4, vo.getImg());
-		
+		System.out.println("dao에서 전달받은 값:" + vo);	
 		//4. 생성한 sql문을 mysql로 보낸다.
-		ps.executeUpdate();
-		System.out.println("4. SQL문 전송 성공.@@@");
+		my.insert("book.create", vo);
+	}
+	
+	public BookVO read(BookVO vo) {
+		return my.selectOne("book.one", vo);
+	}
+	
+	public List<BookVO> all() {
+		return my.selectList("book.all");
+	}
+	
+	public void delete(BookVO vo) {
+		my.delete("book.del", vo);
+	}
+	
+	public void update(BookVO vo) {
+		my.update("book.up", vo);
 	}
 }

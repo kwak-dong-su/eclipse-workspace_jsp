@@ -1,0 +1,3 @@
+- 만약 테이블에 product를 db에 만든 경우
+ id, name, content, price
+ - spring framework에서 어떤 파일들을 만들어주어야 할까요.

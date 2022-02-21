@@ -1,0 +1,8 @@
+package com.hi.mvc03;
+
+public class BbsVO {
+	private String id;
+	private String title;
+	private String content;
+	private String writer;
+}
