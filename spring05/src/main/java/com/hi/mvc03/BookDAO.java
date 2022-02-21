@@ -21,7 +21,7 @@ public class BookDAO {
 	//주입: 의존성을 표현하고 싶으면 ram에 만들어놓은 주소를 쓰는 클래스의
 	//		변수에 주소를 넣어주세요.
 	
-	public void create(BookVO vo) throws Exception {
+	public void create(BookVO vo) {
 		System.out.println("dao에서 전달받은 값:" + vo);	
 		//4. 생성한 sql문을 mysql로 보낸다.
 		my.insert("book.create", vo);

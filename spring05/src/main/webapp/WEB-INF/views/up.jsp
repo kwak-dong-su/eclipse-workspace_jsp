@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body bgcolor="yellow">
 회원수정 완료
 </body>
 </html>

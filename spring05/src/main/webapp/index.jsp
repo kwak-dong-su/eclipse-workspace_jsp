@@ -15,5 +15,14 @@
 이미지명 : <input type="text" name="img"><br>
 <button type="submit">서버로 전송</button>
 </form>
+<hr>
+<form action="one2">
+검색할 아이디 : <input type="text" name="id"><br>
+<button type="submit">북마크 검색</button>
+</form>
+<a href="">
+<button>전체 북마크 조회</button>
+</a>
+</form>
 </body>
 </html>

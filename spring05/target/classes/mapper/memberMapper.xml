@@ -9,16 +9,22 @@
 	</select>
 	<select id="one" parameterType="memberVO" resultType="memberVO">
 		select * from MEMBER where id = #{id}
+		<!-- rs 각컬럼에서 꺼내와서 vo에 set메소드를 불러서 각 값을-->
+		<!-- vo의 멤버변수와 table의 컬럼들과 똑같이 만들어주자. -->
+		<!-- id, pw, name, tel===vo의 setId(), setPw() -->
+		<!-- Object(vo) == Rdb table column -->
+		<!-- ORM: 자바객체(vo)와 RDB 테이블간의 맵핑 룰을 정의 -->
 	</select>
-	<select	id="login" parameterType="memberVO" resultType="memberVO">
+	<select id="login" parameterType="memberVO" resultType="memberVO">
 		select * from MEMBER where id = #{id} and pw = #{pw}
 	</select>
 	<delete id="del"  parameterType="memberVO">
 		delete from MEMBER  where id = #{id}
 	</delete>
-	<update id="up" parameterType="memberVO">
+	<update id="up">
 		update MEMBER set tel = #{tel} where id = #{id}
 	</update>
+	
 	
 	
 	

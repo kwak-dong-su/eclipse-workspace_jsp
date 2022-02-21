@@ -1,5 +1,6 @@
 package com.hi.mvc03;
 
+import java.util.List;
 import java.util.Random;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -55,5 +56,18 @@ public class BookController {
 	public void insert(BookVO vo) throws Exception {
 		System.out.println("북마크 제어 요청됨.");
 		dao.create(vo);
+	}
+	
+	@RequestMapping("all2")
+	public void all(Model model) {
+		List<BookVO> list= dao.all();
+		model.addAttribute("list", list);
+		
+	}
+	
+	@RequestMapping("one2")
+	public void one(BookVO vo, Model model) {
+		BookVO one = dao.read(vo);
+		model.addAttribute("one", one);
 	}
 }
