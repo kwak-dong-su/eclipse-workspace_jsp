@@ -5,12 +5,14 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.hi.mvcProject.MemberVO" alias="memberVO"></typeAlias>
-		<typeAlias type="com.hi.mvcProject.ProductVO" alias="ProductVO"></typeAlias>
+		<typeAlias type="com.hi.mvcProject.ProductVO" alias="productVO"></typeAlias>
+		<typeAlias type="com.hi.mvcProject.BbsVO" alias="bbsVO"></typeAlias>
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="mapper/member.xml" />
 		<mapper resource="mapper/product.xml" />
+		<mapper resource="mapper/bbs.xml" />
 	</mappers>
 </configuration>
 

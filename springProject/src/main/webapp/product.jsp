@@ -17,8 +17,8 @@
 <script type="text/javascript">
 	$(function(){
 		$.ajax({
-			url: "list",
-			success: function(result){
+			url: "list", // views/list.jsp가 결과!
+			success: function(result){ //결과가 담겨진 table부분코드
 				$('#d1').html(result)
 			},
 			error: function(){
