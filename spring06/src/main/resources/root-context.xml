@@ -9,7 +9,7 @@
 <!-- DB프로그래밍의 1-2번을 해주는 클래스를 싱글톤 생성. -->
 <bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
     <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-    <property name="url" value="jdbc:mysql://localhost:3366/big"></property>
+    <property name="url" value="jdbc:mysql://localhost:3366/big3"></property>
     <property name="username" value="root"></property>
     <property name="password" value="1234"></property>
 </bean>

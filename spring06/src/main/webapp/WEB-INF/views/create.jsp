@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-제품이 추가되었습니다.
+주식 정보가 저장되었습니다.
+<a href="finance.jsp">홈으로</a>
 </body>
 </html>

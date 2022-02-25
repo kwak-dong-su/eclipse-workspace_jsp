@@ -1,7 +1,7 @@
 <%@page import="com.hi.mvcProject.BbsVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,21 +13,41 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script type="text/javascript" src="resources/js/jquery-3.4.1.js"></script>
 <script type="text/javascript">
-	$(function(){
-		$('#del').click(function(){
-			if(confirm("정말로 삭제하시겠습니까?")){
+	$(function() {
+		$('#del').click(function() {
+			if (confirm("정말로 삭제하시겠습니까?")) {
 				/* location="delete?id="+${one.id}; */
 				$.ajax({
-					url: "delete",
-					data: {
-						id: "${one.id}"
+					url : "delete",
+					data : {
+						id : "${one.id}"
 					},
-					success: function(){
+					success : function() {
 						alert('글이 삭제되었습니다.')
-						location.href="bbs.jsp"
+						location.href = "bbs.jsp"
 					}
 				})
 			}
+		})
+
+		$('#insertBtn').click(function() {
+			$.ajax({
+				url : "replyInsert",
+				data : {
+					bbsid : ${one.id},
+					content : $('#reply').val(),
+					writer : '${userId}'
+				},
+				success : function(result) {
+					//성공하면, 현재 목록 아래에 붙여넣자.!!
+					$('#reply').val("")
+					$('#replyTable').append(result)
+				},
+				error : function(){
+					
+				}
+			})
+		
 		})
 	})
 </script>
@@ -60,30 +80,53 @@
 					<td class="right">${one.writer}</td>
 				</tr>
 			</table>
-			<a href="bbs.jsp"><button class='btn-success'>목록</button></a> 
-			
+			<a href="bbs.jsp"><button class='btn-success'>목록</button></a>
+
 			<!--로그인한 사람과 작성자가 동일하면 수정, 삭제버튼을 나타나게 해주자.
 				세션값과 on.getWriter()가 동일하면!-->
 			<c:if test="${userId eq one.writer}">
-			
+
 			</c:if>
-				
-				
+
+
 			<%
-			if(session.getAttribute("userName")!=null)
-			{
-				BbsVO one= (BbsVO)request.getAttribute("one");
-				
-				if(session.getAttribute("userName").equals(one.getWriter())){ %>
-			<a href="update?id=<%=one.getId()%>&content=<%=one.getContent()%>&writer=<%=one.getWriter()%>"><button class='btn-success'>수정</button></a> 
+				if (session.getAttribute("userName") != null) {
+				BbsVO one = (BbsVO) request.getAttribute("one");
+
+				if (session.getAttribute("userName").equals(one.getWriter())) {
+			%>
+			<a
+				href="update?id=<%=one.getId()%>&content=<%=one.getContent()%>&writer=<%=one.getWriter()%>"><button
+					class='btn-success'>수정</button></a>
 			<button id=del class='btn-success'>삭제</button>
-			<%}
+			<%
+				}
 			}
 			%>
 		</div>
-	<div id="d1">
-	<h3>댓글 들어가는 부분</h3>
-	</div>
+
+		<div id="d1">
+			<table id="replyTable" style="font-weight: bold;">
+				<%if (session.getAttribute("userId") != null) {%>
+				<tr>
+					<td>Reply : <input id="reply">
+						<button id="insertBtn">댓글달기</button>
+					</td>
+				</tr>
+				<%}%>
+				<c:forEach items="${list}" var="one">
+					<tr>
+						<td style="text-align:left"><img src="resources/img/re.png" width="30" height="30">${one.content}
+							- ${one.writer}</td>
+						<td>
+						<c:if test="${userId eq one.writer}">
+							<button id="deleteBtn">X</button>
+						</c:if>
+						</td>
+					</tr>
+				</c:forEach>
+			</table>
+		</div>
 	</div>
 </body>
 </html>

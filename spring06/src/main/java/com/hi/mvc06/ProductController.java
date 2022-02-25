@@ -14,7 +14,7 @@ public class ProductController {
 	@Autowired
 	ProductDAO dao;
 	
-	@RequestMapping("create")
+	@RequestMapping("create2")
 	public void create(ProductVO vo) throws Exception
 	{
 		System.out.println("제품 추가 제어 요청됨.");

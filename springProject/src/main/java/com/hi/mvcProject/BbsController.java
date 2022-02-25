@@ -13,6 +13,9 @@ public class BbsController {
 	@Autowired
 	BbsDAO dao;
 	
+	@Autowired
+	ReplyDAO dao2;
+	
 	@RequestMapping("write")
 	public void write(BbsVO vo) {
 		dao.create(vo);
@@ -38,8 +41,14 @@ public class BbsController {
 	
 	@RequestMapping("bookone")
 	public void one(BbsVO vo, Model model) {
+		//게시물 1개짜리 vo2
+		//replylist
 		BbsVO vo2=dao.one(vo);
 		model.addAttribute("one", vo2);
+		
+		List<ReplyVO> list= dao2.list(vo);
+		model.addAttribute("list", list);
+		System.out.println(list);
 	}
 	
 	@RequestMapping("booklist")
