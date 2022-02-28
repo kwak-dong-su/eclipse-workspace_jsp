@@ -1,5 +1,6 @@
 package com.cgv.mvc;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ public class TicketController {
 	
 	@RequestMapping("tInsert")
 	public void insert(TicketVO vo) {
+		System.out.println(vo);
 		dao.create(vo);
 	}
 	
@@ -48,6 +50,17 @@ public class TicketController {
 		System.out.println(vo);
 		List<TicketVO> list= dao.all(vo);
 		model.addAttribute("list", list);
+		
+		MovieVO vo2=new MovieVO();
+		List<MovieVO> list2 = new ArrayList<MovieVO>();
+		for(int i=0;i<list.size();i++)
+		{
+			vo2.setMvId(list.get(i).getMvId());
+			list2.add(dao2.one(vo2));
+			System.out.println(list2.get(i));
+		}
+		
+		model.addAttribute("list2", list2);
 	}
 	
 	@RequestMapping("tTime")
@@ -76,33 +89,26 @@ public class TicketController {
 	public void seat(TicketVO vo, Model model) {
 		System.out.println(vo);
 		
-		List<TicketVO> list= dao.seatAll(vo);
+		List<TicketVO> list= dao.usedSeat(vo);
 		
-		String seat="";
+		int[] seats= new int[12];
+		System.out.println(seats.length);
+		
+		for(int i=0;i<12;i++)
+		{
+			seats[i]=0;
+		}
 		
 		for(int i=0;i<list.size();i++)
 		{
-			seat=seat+list.get(i).gettSeat();
-			if((i+1)!=list.size())
-			{
-				seat=seat+",";	
-			}
+			seats[list.get(i).gettSeat()-1]=list.get(i).gettSeat();
 		}
 		
-		String[] seats=seat.split(",");
+		model.addAttribute("seats", seats);
+		model.addAttribute("time", vo.gettTime());
+		model.addAttribute("mvId", vo.getMvId());
 		
-		String json="{";
-		for(int i=0;i<seats.length;i++)
-		{
-			json=json+"\"seat"+i+"\":\""+seats[i]+"\"";
-			if((i+1)!=seats.length)
-			{
-				json=json+",";		
-			}
-		}
-		json=json+"}";
-		System.out.println(json);
-		model.addAttribute("seats", json);
+		
 	}
 	
 }

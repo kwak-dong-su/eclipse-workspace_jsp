@@ -20,7 +20,7 @@
 		$.ajax({
 			url: "tList",
 			data: {
-				mId : "song" /* 세션 아이디 ${userId} 들어가는 부분*/
+				mId : "kim" /* 세션 아이디 ${userId} 들어가는 부분*/
 			},
 			success: function(result){
 				$('#d1').html(result)

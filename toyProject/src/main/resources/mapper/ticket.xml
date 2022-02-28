@@ -5,7 +5,7 @@
 <mapper namespace="ticket">
 
 	<insert id="insert" parameterType="ticketVO">
-		insert into ticket(mId, mvId, tTime, tSection, tSeat) values(#{mId}, #{mvId}, #{tTime}, #{tSection}, #{tSeat})
+		insert into ticket(mId, mvId, tTime, tSeat) values(#{mId}, #{mvId}, #{tTime}, #{tSeat})
 	</insert>
 	
 	<update id="update" parameterType="ticketVO">
@@ -25,7 +25,7 @@
 	</select>
 	
 	<select id="seat" parameterType="ticketVO" resultType="ticketVO">
-		select * from ticket where mvId=#{mvId}
+		select tSeat from ticket where mvId=#{mvId} and tTime=#{tTime} order by tSeat asc
 	</select>
 
 </mapper>

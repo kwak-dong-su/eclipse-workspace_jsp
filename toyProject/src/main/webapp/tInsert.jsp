@@ -25,7 +25,8 @@
 			success: function(result){
 				for(key in result){
 				    console.log(result[key])
-				    $('#d1').append("<button class='tButton' id='"+key+"' value='"+result[key]+"'>"+(parseInt(result[key])+12)+":00</button> ")
+				    $('#d1').append("<button class='tButton' onclick='seatChoice(1,"+result[key]+")' id='"+key+"' value='"+result[key]+"'>"+(parseInt(result[key]))+":00</button> ")
+				    //seatChoice 함수 안에 mvId값 넣어주기
 				}
 			},
 			error: function(){
@@ -34,23 +35,10 @@
 		})
 		
 		
-		$(document).on("click",".tButton",function(){
-			$.ajax({
-				url: "tSeat",
-				data: {
-					mvId : "2"  /* a태그 get으로 받아온 ${mvId} 들어가는 부분 */
-				},
-				success: function(result){
-					for(key in result){
-						$('#d2').html(result)
-					}
-				},
-				error: function(){
-					alert('실패.@@@')
-				}
-			})
-		})
+		/* $(document).on("click",".tButton",function(time){	
+		}) */
 		
+			
 	})
 </script>
 <link rel="stylesheet" type="text/css" href="resources/css/project.css">
@@ -75,4 +63,25 @@
 		</div>
 	</div>
 </body>
+<script>
+function seatChoice(id, time) /* a태그 get으로 받아온 ${mvId} 들어가는 부분 */
+{
+	console.log(time)
+	 $.ajax({
+			url: "tSeat",
+			data: {
+				mvId : id,
+				tTime : time
+			},
+			success: function(result){
+				for(key in result){
+					$('#d2').html(result)
+				}
+			},
+			error: function(){
+				alert('실패.@@@')
+			}
+		})
+}
+</script>
 </html>

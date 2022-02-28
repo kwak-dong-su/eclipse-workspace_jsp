@@ -9,13 +9,23 @@
       <td class="left">예매 변경</td>
       <td class="left">예매 취소</td>
    </tr>
-   <c:forEach items="${list}" var="one">
+   <c:forEach items="${list}" var="one" varStatus="status">
    <tr>
       <td class="right">${one.tId}</td>
-      <td class="right"><a href="mvOne?id=${one.mvId}">영화제목</a></td>
-      <td class="right">${one.tTime+12}:00</td>     
+      <td class="right"><a href="mvOne?id=${list2[status.index].mvId}">${list2[status.index].mvTitle}</a></td>
+      <td class="right">${one.tTime}:00</td>     
       <td class="right"><a href="tUpdate.jsp?tId=${one.tId}"><button>변경</button></a></td>
-      <td class="right"><a href="tDelete.jsp?tId=${one.tId}"><button>취소</button></a></td>
+      <td class="right"><button onclick="delTicket(${one.tId})">취소</button></td>
    </tr>
    </c:forEach>
 </table>
+<script>
+	function delTicket(id)
+	{
+		if(confirm('정말로 취소하시겠습니까?'))
+			{
+				location="tDelete?tId="+id
+			}
+	}
+	
+</script>

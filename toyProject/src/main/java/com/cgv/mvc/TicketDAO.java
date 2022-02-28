@@ -33,7 +33,7 @@ public class TicketDAO {
 		return my.selectList("ticket.list", vo);
 	}
 	
-	public List<TicketVO> seatAll(TicketVO vo) {
+	public List<TicketVO> usedSeat(TicketVO vo) {
 		return my.selectList("ticket.seat", vo);
 	}
 }
