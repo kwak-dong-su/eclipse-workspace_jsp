@@ -6,6 +6,6 @@
 <aop-project name="spring03"/>
 <aop-project name="spring04"/>
 <aop-project name="spring05"/>
-<aop-project name="spring06"/>
 <aop-project name="springProject"/>
+<aop-project name="springCrawlingService"/>
 </aop-reference-model>

@@ -1,7 +1,0 @@
-package mapper;
-
-public class Snippet {
-	@Autowired
-		SqlSessionTemplate my;
-}
-

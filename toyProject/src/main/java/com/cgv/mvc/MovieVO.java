@@ -1,14 +1,20 @@
 package com.cgv.mvc;
 
 public class MovieVO {
-
 	private int mvId;
 	private String mvTitle;
 	private String mvTime;
 	private String mvSection;
-	private double mvRating;
+	private String mvRating;
 	private String mvSummary;
 	private String mvImg;
+	
+	
+	@Override
+	public String toString() {
+		return "MvVO [mvId=" + mvId + ", mvTitle=" + mvTitle + ", mvTime=" + mvTime + ", mvSection=" + mvSection
+				+ ", mvRating=" + mvRating + ", mvSummary=" + mvSummary + ", mvImg=" + mvImg + "]";
+	}
 	public int getMvId() {
 		return mvId;
 	}
@@ -33,10 +39,10 @@ public class MovieVO {
 	public void setMvSection(String mvSection) {
 		this.mvSection = mvSection;
 	}
-	public double getMvRating() {
+	public String getMvRating() {
 		return mvRating;
 	}
-	public void setMvRating(double mvRating) {
+	public void setMvRating(String mvRating) {
 		this.mvRating = mvRating;
 	}
 	public String getMvSummary() {
@@ -51,11 +57,4 @@ public class MovieVO {
 	public void setMvImg(String mvImg) {
 		this.mvImg = mvImg;
 	}
-	@Override
-	public String toString() {
-		return "MovieVO [mvId=" + mvId + ", mvTitle=" + mvTitle + ", mvTime=" + mvTime + ", mvSection=" + mvSection
-				+ ", mvRating=" + mvRating + ", mvSummary=" + mvSummary + ", mvImg=" + mvImg + "]";
-	}
-	
-	
 }

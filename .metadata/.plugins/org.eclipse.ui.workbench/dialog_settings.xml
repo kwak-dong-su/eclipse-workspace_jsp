@@ -43,6 +43,8 @@
 		<item key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID" value="true"/>
 		<item key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID" value="true"/>
 		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="C:\Users\hi\Desktop\toyProjectFinal.zip"/>
+			<item value="C:\Users\hi\Desktop\ticket.zip"/>
 			<item value="C:\Users\hi\Desktop\board.zip"/>
 			<item value="C:\Users\hi\Desktop\spring00_CRUD최종_곽동수.zip"/>
 		</list>
@@ -52,5 +54,7 @@
 		<list key="WizardZipFileResourceImportPage1.STORE_SOURCE_NAMES_ID">
 			<item value="C:\Users\hi\Desktop\spring00_CRUD최종.zip"/>
 		</list>
+	</section>
+	<section name="FileSystemImportWizard">
 	</section>
 </section>
