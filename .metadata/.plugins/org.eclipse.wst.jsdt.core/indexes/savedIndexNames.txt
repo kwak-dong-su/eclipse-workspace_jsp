@@ -2,6 +2,7 @@ INDEX VERSION 1.4+C:\eclipse-workspace_jsp\.metadata\.plugins\org.eclipse.wst.js
 2950284601.index
 1425716597.index
 1243057733.index
+<<<<<<< HEAD
 3855464982.index
 2871404847.index
 400218791.index
@@ -13,6 +14,18 @@ INDEX VERSION 1.4+C:\eclipse-workspace_jsp\.metadata\.plugins\org.eclipse.wst.js
 3066907799.index
 32375464.index
 801381677.index
+=======
+2871404847.index
+3855464982.index
+400218791.index
+1197519833.index
+2389166789.index
+2565296914.index
+1605298594.index
+4048212827.index
+3066907799.index
+32375464.index
+>>>>>>> a817a47a1424872c187aa02ceeeb8d34d4341627
 1904539175.index
 3742446933.index
 2814863825.index
@@ -27,5 +40,9 @@ INDEX VERSION 1.4+C:\eclipse-workspace_jsp\.metadata\.plugins\org.eclipse.wst.js
 3251272705.index
 2218159251.index
 3269032917.index
+<<<<<<< HEAD
+=======
+729672496.index
+>>>>>>> a817a47a1424872c187aa02ceeeb8d34d4341627
 682219828.index
 2980087950.index
